@@ -4,13 +4,13 @@ WITH all_ids as
 (SELECT user_pseudo_id,
 DATE_TRUNC(PARSE_DATE("%Y%m%d", event_date), WEEK) event_week,
 SUM(purchase_revenue_in_usd) purchased_sum
-FROM tc-da-1.turing_data_analytics.raw_events
+FROM 
 GROUP BY 1,2),
 
 start_week AS
 (SELECT user_pseudo_id,
 DATE_TRUNC(PARSE_DATE("%Y%m%d", MIN(event_date)), WEEK) start_week,
-FROM tc-da-1.turing_data_analytics.raw_events
+FROM 
 GROUP BY 1)
 
 SELECT sw.start_week, COUNT(DISTINCT ai.user_pseudo_id) new_visitors,
