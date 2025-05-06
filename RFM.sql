@@ -8,7 +8,7 @@ Country,
 MAX(InvoiceDate) AS last_purchase_date,
 COUNT(DISTINCT InvoiceNo) AS frequency,
 SUM(quantity * unitprice) AS monetary
-FROM `turing_data_analytics.rfm`
+FROM ``
 WHERE InvoiceDate BETWEEN '2010-12-01' AND '2011-12-01' AND Quantity >=1 AND unitprice >=0.01 AND customerid IS NOT NULL
 GROUP BY CustomerID, Country
 ),
