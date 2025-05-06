@@ -1,3 +1,4 @@
+-- https://docs.google.com/spreadsheets/d/16S47K2JvAhJY0HvRKhgNycrNWzEcZ4Gq-KuVYBIW4WM/edit?gid=0#gid=0
 -- You should provide weekly subscriptions data that shows how many subscribers started their
 --subscription in a particular week and how many remain active in the following 6 weeks.
 --Your end result should show weekly retention cohorts for each week of data available in the
