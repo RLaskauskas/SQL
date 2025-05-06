@@ -6,7 +6,7 @@ user_pseudo_id
 ,country			
 ,event_name			
 ,MIN(event_timestamp) AS event_timestamp			
-FROM turing_data_analytics.raw_events			
+FROM 		
 WHERE event_name IN ('page_view', 'view_item', 'add_to_cart', 'begin_checkout', 'purchase')			
 GROUP BY			
 user_pseudo_id			
