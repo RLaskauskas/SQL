@@ -82,3 +82,26 @@ SELECT *
 FROM RankedItems
 WHERE ranking <= 3;
 
+------ steps --------
+1. Handle Nulls
+    IFNULL(country, 'Unknown') AS cleaned_country
+    
+2. Remove Duplicates
+    SELECT *
+FROM (
+  SELECT *,
+         ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) AS row_num
+  FROM your_table
+)
+WHERE row_num = 1;
+
+3. Standardize Text Formats
+LOWER(TRIM(email)) AS cleaned_email
+
+4. Fix Data Types
+CAST(salary AS FLOAT64) AS salary_float
+
+5. Validate and Filter Bad Data
+WHERE birth_date <= CURRENT_DATE()
+
+
