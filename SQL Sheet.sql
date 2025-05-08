@@ -70,3 +70,15 @@ LEAD(total_amt_usd) OVER (ORDER BY occurred_at) AS lead,
 LEAD(total_amt_usd) OVER (ORDER BY occurred_at) - total_amt_usd AS lead_difference
 NTILE(4) OVER (PARTITION BY account_id ORDER BY standard_qty) AS standard_quartile
 
+WITH RankedItems AS (
+    SELECT 
+        category,
+        item_name,
+        sales,
+        RANK() OVER (PARTITION BY category ORDER BY sales DESC) AS ranking
+    FROM sales_table
+)
+SELECT *
+FROM RankedItems
+WHERE ranking <= 3;
+
